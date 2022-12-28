@@ -9,6 +9,7 @@ class Usuario {
 
 class Sueldo {
     constructor(id,ganancia,horas,sueldototal,condicion){
+        this.id=id
         this.ganancia=ganancia
         this.horas=horas
         this.sueldototal=sueldototal
