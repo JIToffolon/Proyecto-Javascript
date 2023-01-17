@@ -1,14 +1,44 @@
 /* Calculadora de sueldos */
 
+
+
+//Usuarios > id, Nombre, Apellido
+const userAdmin = new Usuario(1, "Admin", "Admin");
+const user1 = new Usuario(2, "Raul", "Gonzalez");
+const user2 = new Usuario(3, "Matias", "Gecke");
+const user3 = new Usuario(4, "Christian", "Belessi");
 let usuarios = [];
+
+//prestamo > id,ganancia,horas,sueldoTotal,condicion
+const consulta1 = new Sueldo(1, 150, 60, 9000, "negro");
+const consulta2 = new Sueldo(2, 350, 58, 20300, "blanco");
+const consulta3 = new Sueldo(3, 500, 90, 45000, "negro");
 let sueldos = [];
-let name = "";
-let repeat = true;
-while (repeat === true) {
-  inicializarApp();
-  opcionesSueldos(name);
-  finalizar(name);
+
+localStorage.getItem("usuarios") ? (usuarios = JSON.parse(localStorage.getItem("usuarios"))) : (usuarios = [user1, user2, user3]);
+
+localStorage.getItem("sueldos") ? (usuarios = JSON.parse(localStorage.getItem("sueldos"))) : (usuarios = [consulta1, consulta2, consulta3]);
+
+inicializarApp();
+
+function inicializarApp(){
+  createTitle();
+  createMenu();
 }
+
+
+
+
+
+//let usuarios = [];
+//let sueldos = [];
+//let name = "";
+//let repeat = true;
+//while (repeat === true) {
+//  inicializarApp();
+//  opcionesSueldos(name);
+//  finalizar(name);
+//}
 
 function finalizar(name) {
   let repetir = true;
@@ -31,7 +61,7 @@ function finalizar(name) {
   }
 }
 
-function inicializarApp() {
+/*function inicializarApp() {
   let option = 0;
   let repetir = true;
   while (repetir === true) {
@@ -56,7 +86,7 @@ function inicializarApp() {
   } else {
     elegirUsuario();
   }
-}
+}*/
 
 function opcionesSueldos() {
   let option = 0;
